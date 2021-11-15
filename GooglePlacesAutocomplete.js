@@ -429,7 +429,7 @@ export const GooglePlacesAutocomplete = forwardRef((props, ref) => {
             } else {
               results = responseJSON.results;
             }
-            results = _filterResultsByTypes(results, props.filterPlaceTypes)
+            results = _filterResultsByTypes(results, props.filterPlaceTypes ?? [])
             setDataSource(buildRowsFromResults(results));
             // }
           }
@@ -502,7 +502,7 @@ export const GooglePlacesAutocomplete = forwardRef((props, ref) => {
                     props.filterReverseGeocodingByTypes,
                   )
                 : responseJSON.predictions;
-            results = _filterResultsByTypes(results, props.filterPlaceTypes);
+            results = _filterResultsByTypes(results, props.filterPlaceTypes) ?? []);
             _results = results;
             setDataSource(buildRowsFromResults(results));
             // }
