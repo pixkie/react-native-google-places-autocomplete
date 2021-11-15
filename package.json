@@ -8,11 +8,11 @@
     "lint": "eslint . && prettier --write .",
     "release": "npx release-it"
   },
-  "author": "Farid from Safi",
+  "author": "Farid from Safi, Bolanle Onifade",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FaridSafi/react-native-google-places-autocomplete.git"
+    "url": "git+https://github.com/pixkie/react-native-google-places-autocomplete.git"
   },
   "keywords": [
     "autocomplete",
@@ -24,9 +24,9 @@
     "android"
   ],
   "bugs": {
-    "url": "https://github.com/FaridSafi/react-native-google-places-autocomplete/issues"
+    "url": "https://github.com/pixkie/react-native-google-places-autocomplete/issues"
   },
-  "homepage": "https://github.com/FaridSafi/react-native-google-places-autocomplete#readme",
+  "homepage": "https://github.com/pixkie/react-native-google-places-autocomplete#readme",
   "dependencies": {
     "lodash.debounce": "^4.0.8",
     "prop-types": "^15.7.2",

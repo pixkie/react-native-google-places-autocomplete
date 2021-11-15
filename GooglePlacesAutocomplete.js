@@ -394,6 +394,7 @@ export const GooglePlacesAutocomplete = forwardRef((props, ref) => {
     return results;
   };
 
+
   const _requestNearby = (latitude, longitude) => {
     _abortRequests();
 
@@ -428,7 +429,7 @@ export const GooglePlacesAutocomplete = forwardRef((props, ref) => {
             } else {
               results = responseJSON.results;
             }
-
+            results = _filterResultsByTypes(results, props.filterPlaceTypes)
             setDataSource(buildRowsFromResults(results));
             // }
           }
@@ -494,14 +495,14 @@ export const GooglePlacesAutocomplete = forwardRef((props, ref) => {
           const responseJSON = JSON.parse(request.responseText);
           if (typeof responseJSON.predictions !== 'undefined') {
             // if (_isMounted === true) {
-            const results =
+            let results =
               props.nearbyPlacesAPI === 'GoogleReverseGeocoding'
                 ? _filterResultsByTypes(
                     responseJSON.predictions,
                     props.filterReverseGeocodingByTypes,
                   )
                 : responseJSON.predictions;
-
+            results = _filterResultsByTypes(results, props.filterPlaceTypes);
             _results = results;
             setDataSource(buildRowsFromResults(results));
             // }
