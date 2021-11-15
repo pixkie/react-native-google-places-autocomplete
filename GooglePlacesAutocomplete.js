@@ -502,7 +502,7 @@ export const GooglePlacesAutocomplete = forwardRef((props, ref) => {
                     props.filterReverseGeocodingByTypes,
                   )
                 : responseJSON.predictions;
-            results = _filterResultsByTypes(results, props.filterPlaceTypes) ?? []);
+            results = _filterResultsByTypes(results, props.filterPlaceTypes ?? []);
             _results = results;
             setDataSource(buildRowsFromResults(results));
             // }
