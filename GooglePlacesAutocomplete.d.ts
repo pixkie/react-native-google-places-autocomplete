@@ -307,22 +307,55 @@ interface PlusCode {
   global_code: string;
 }
 
+interface DayTimeOpeningHoursPeriod {
+  day: Number;
+  time: string;
+}
+
+interface OpeningHoursPeriod {
+  open: DayTimeOpeningHoursPeriod
+  close: DayTimeOpeningHoursPeriod
+}
+
+
+interface OpeningHours {
+  open_now: boolean;
+  periods: OpeningHoursPeriod[];
+  weekday_text: string[];
+}
+
+interface Photo {
+  height: Number;
+  html_attribution: string[];
+  photo_reference: string;
+  width: Number;
+}
+
 interface GooglePlaceDetail {
   address_components: AddressComponent[];
   adr_address: string;
+  business_status: string;
   formatted_address: string;
+  formatted_phone_number: string;
   geometry: Geometry;
   icon: string;
-  id: string;
+  icon_background_color: string;
+  icon_mask_base_uri: string;
+  international_phone_number: string;
   name: string;
+  opening_hours: OpeningHours;
+  photos: Photo[];
   place_id: string;
   plus_code: PlusCode;
+  rating: Number;
   reference: string;
   scope: 'GOOGLE';
   types: PlaceType[];
   url: string;
+  user_ratings_total: Number;
   utc_offset: number;
   vicinity: string;
+  website: string;
 }
 
 /** @see https://developers.google.com/places/web-service/autocomplete */
