@@ -1,3 +1,11 @@
 .DS_Store
 npm-debug.log
 node_modules/
+/.idea/.gitignore
+/.idea/misc.xml
+/.idea/modules.xml
+/package-lock.json
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/react-native-google-places-autocomplete.iml
+/.idea/runConfigurations.xml
+/.idea/vcs.xml

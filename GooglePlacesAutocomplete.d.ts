@@ -283,9 +283,14 @@ interface GooglePlaceData {
   structured_formatting: StructuredFormatting;
 }
 
-interface Point {
+interface LatLngLiteral {
   lat: number;
   lng: number;
+}
+
+interface Bounds {
+  northeast: LatLngLiteral;
+  southwest: LatLngLiteral;
 }
 
 interface AddressComponent {
@@ -295,11 +300,8 @@ interface AddressComponent {
 }
 
 interface Geometry {
-  location: Point;
-  viewport: {
-    northeast: Point;
-    southwest: Point;
-  };
+  location: LatLngLiteral;
+  viewport: Bounds;
 }
 
 interface PlusCode {
@@ -313,10 +315,9 @@ interface DayTimeOpeningHoursPeriod {
 }
 
 interface OpeningHoursPeriod {
-  open: DayTimeOpeningHoursPeriod
-  close: DayTimeOpeningHoursPeriod
+  open: DayTimeOpeningHoursPeriod;
+  close: DayTimeOpeningHoursPeriod;
 }
-
 
 interface OpeningHours {
   open_now: boolean;
@@ -329,6 +330,17 @@ interface Photo {
   html_attribution: string[];
   photo_reference: string;
   width: Number;
+}
+
+interface PlaceReview {
+  author_name: string;
+  rating: Number;
+  relative_time_description: string;
+  time: Number;
+  author_url: string;
+  language: string;
+  profile_photo_url: string;
+  text: string;
 }
 
 interface GooglePlaceDetail {
@@ -344,12 +356,14 @@ interface GooglePlaceDetail {
   international_phone_number: string;
   name: string;
   opening_hours: OpeningHours;
+  permanently_closed: boolean;
   photos: Photo[];
   place_id: string;
   plus_code: PlusCode;
+  price_level: Number;
   rating: Number;
   reference: string;
-  scope: 'GOOGLE';
+  reviews: PlaceReview[];
   types: PlaceType[];
   url: string;
   user_ratings_total: Number;
